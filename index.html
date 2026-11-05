@@ -448,6 +448,12 @@
             body { background: white; color: black; }
             .section, .company-card { border: 1px solid #ddd; }
         }
+            .stats-note { margin-top: 12px; font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+            .todo-group { margin-top: 24px; border: 1px dashed var(--border); border-radius: 12px; padding: 16px 20px; background: var(--bg-card); }
+        .todo-group summary { cursor: pointer; color: var(--text-secondary); font-size: 0.95em; font-weight: 600; }
+        .todo-group[open] summary { margin-bottom: 16px; }
+        .todo-group .company-card { margin-bottom: 16px; }
+        .todo-group .company-card:last-child { margin-bottom: 0; }
     </style>
 </head>
 <body>
@@ -458,30 +464,6 @@
     <h1>36氪「2026年最具成长价值的百家企业」</h1>
     <div class="subtitle">深度调研报告</div>
     <div class="meta">信息更新时间：<span id="report-date"></span> | 数据来源：企业官网、招股书、权威媒体报道、行业研究报告</div>
-</div>
-
-<!-- Stats Bar -->
-<div class="stats-bar">
-    <div class="stat-card">
-        <div class="number">100</div>
-        <div class="label">收录企业总数</div>
-    </div>
-    <div class="stat-card">
-        <div class="number">9</div>
-        <div class="label">核心赛道</div>
-    </div>
-    <div class="stat-card">
-        <div class="number">5.5岁</div>
-        <div class="label">企业平均年龄</div>
-    </div>
-    <div class="stat-card">
-        <div class="number">70%+</div>
-        <div class="label">营收增速超100%</div>
-    </div>
-    <div class="stat-card">
-        <div class="number">60%+</div>
-        <div class="label">成立即布局全球</div>
-    </div>
 </div>
 
 <!-- 企业筛选控件 -->
@@ -532,21 +514,22 @@
         <div class="stats-grid">
             <div class="stats-item">
                 <div class="stats-item-label">已披露营收企业</div>
-                <div class="stats-item-value">32家</div>
+                <div class="stats-item-value">31家</div>
             </div>
             <div class="stats-item">
-                <div class="stats-item-label">合计总营收</div>
-                <div class="stats-item-value">约2,800亿元</div>
+                <div class="stats-item-label">可核算营收合计</div>
+                <div class="stats-item-value">约62亿元</div>
             </div>
             <div class="stats-item">
                 <div class="stats-item-label">平均营收增速</div>
-                <div class="stats-item-value">156%</div>
+                <div class="stats-item-value">约+294%</div>
             </div>
             <div class="stats-item">
                 <div class="stats-item-label">营收最高企业</div>
-                <div class="stats-item-value">新时达（约380亿元）</div>
+                <div class="stats-item-value">质子汽车（约27亿元）</div>
             </div>
         </div>
+        <p class="stats-note">统计口径：31 家正文提及营收数据，其中 5 家给出明确金额（合计约 62 亿元）；增速仅 2 家披露（+260%、+327%），平均值仅供参考。</p>
     </div>
     
     <div class="stats-panel" id="panel-funding">
@@ -554,21 +537,22 @@
         <div class="stats-grid">
             <div class="stats-item">
                 <div class="stats-item-label">已披露融资企业</div>
-                <div class="stats-item-value">89家</div>
+                <div class="stats-item-value">43家</div>
             </div>
             <div class="stats-item">
                 <div class="stats-item-label">合计融资总额</div>
-                <div class="stats-item-value">约1,200亿元</div>
+                <div class="stats-item-value">约3,388亿元</div>
             </div>
             <div class="stats-item">
-                <div class="stats-item-label">独角兽企业</div>
-                <div class="stats-item-value">28家</div>
+                <div class="stats-item-label">独角兽企业（估值≥10亿美元）</div>
+                <div class="stats-item-value">22家</div>
             </div>
             <div class="stats-item">
                 <div class="stats-item-label">融资最高企业</div>
-                <div class="stats-item-value">智元机器人（超200亿元）</div>
+                <div class="stats-item-value">DeepSeek（约1,500亿元）</div>
             </div>
         </div>
+        <p class="stats-note">统计口径：仅统计卡片中明确给出金额的「累计融资/最新融资」字段；独角兽按未上市且估值≥10亿美元（约70亿元人民币）计。</p>
     </div>
     
     <div class="stats-panel" id="panel-region">
@@ -576,35 +560,40 @@
         <div class="stats-bar-chart">
             <div class="stats-bar-row">
                 <div class="stats-bar-label">北京</div>
-                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 28%"></div></div>
-                <div class="stats-bar-value">30家</div>
+                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 61%"></div></div>
+                <div class="stats-bar-value">19家</div>
             </div>
             <div class="stats-bar-row">
                 <div class="stats-bar-label">上海</div>
-                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 21%"></div></div>
-                <div class="stats-bar-value">22家</div>
+                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 35%"></div></div>
+                <div class="stats-bar-value">11家</div>
             </div>
             <div class="stats-bar-row">
                 <div class="stats-bar-label">深圳</div>
-                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 15%"></div></div>
-                <div class="stats-bar-value">16家</div>
+                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 58%"></div></div>
+                <div class="stats-bar-value">18家</div>
             </div>
             <div class="stats-bar-row">
                 <div class="stats-bar-label">杭州</div>
-                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 8%"></div></div>
-                <div class="stats-bar-value">9家</div>
+                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 23%"></div></div>
+                <div class="stats-bar-value">7家</div>
             </div>
             <div class="stats-bar-row">
                 <div class="stats-bar-label">广州</div>
                 <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 6%"></div></div>
-                <div class="stats-bar-value">6家</div>
+                <div class="stats-bar-value">2家</div>
             </div>
             <div class="stats-bar-row">
                 <div class="stats-bar-label">其他城市</div>
-                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 22%"></div></div>
-                <div class="stats-bar-value">23家</div>
+                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 39%"></div></div>
+                <div class="stats-bar-value">12家</div>
             </div>
-        </div>
+            <div class="stats-bar-row">
+                <div class="stats-bar-label">总部未披露</div>
+                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 100%"></div></div>
+                <div class="stats-bar-value">31家</div>
+            </div>
+                        </div>
     </div>
     
     <div class="stats-panel" id="panel-track-count">
@@ -613,30 +602,20 @@
             <div class="stats-bar-row">
                 <div class="stats-bar-label">新能源汽车/智能网联</div>
                 <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 100%"></div></div>
-                <div class="stats-bar-value">32家</div>
+                <div class="stats-bar-value">31家</div>
             </div>
             <div class="stats-bar-row">
                 <div class="stats-bar-label">机器人/具身智能</div>
-                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 72%"></div></div>
-                <div class="stats-bar-value">23家</div>
+                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 71%"></div></div>
+                <div class="stats-bar-value">22家</div>
             </div>
             <div class="stats-bar-row">
                 <div class="stats-bar-label">人工智能/大模型</div>
-                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 47%"></div></div>
+                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 48%"></div></div>
                 <div class="stats-bar-value">15家</div>
             </div>
             <div class="stats-bar-row">
-                <div class="stats-bar-label">生物医药/医疗器械</div>
-                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 25%"></div></div>
-                <div class="stats-bar-value">8家</div>
-            </div>
-            <div class="stats-bar-row">
                 <div class="stats-bar-label">商业航天/低空经济</div>
-                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 22%"></div></div>
-                <div class="stats-bar-value">7家</div>
-            </div>
-            <div class="stats-bar-row">
-                <div class="stats-bar-label">量子计算</div>
                 <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 19%"></div></div>
                 <div class="stats-bar-value">6家</div>
             </div>
@@ -646,16 +625,26 @@
                 <div class="stats-bar-value">6家</div>
             </div>
             <div class="stats-bar-row">
-                <div class="stats-bar-label">新能源/储能/新材料</div>
-                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 16%"></div></div>
-                <div class="stats-bar-value">5家</div>
+                <div class="stats-bar-label">量子计算</div>
+                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 19%"></div></div>
+                <div class="stats-bar-value">6家</div>
             </div>
             <div class="stats-bar-row">
                 <div class="stats-bar-label">半导体/集成电路</div>
                 <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 16%"></div></div>
                 <div class="stats-bar-value">5家</div>
             </div>
-        </div>
+            <div class="stats-bar-row">
+                <div class="stats-bar-label">新能源/储能/新材料</div>
+                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 16%"></div></div>
+                <div class="stats-bar-value">5家</div>
+            </div>
+            <div class="stats-bar-row">
+                <div class="stats-bar-label">生物医药/医疗器械</div>
+                <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 13%"></div></div>
+                <div class="stats-bar-value">4家</div>
+            </div>
+                        </div>
     </div>
 </div>
 
@@ -666,13 +655,14 @@
         <li><a href="#overview">一、榜单概览与赛道分布</a></li>
         <li><a href="#ai-track">二、人工智能/大模型赛道深度分析</a></li>
         <li><a href="#robot-track">三、机器人/具身智能赛道深度分析</a></li>
-        <li><a href="#chip-track">四、半导体/算力芯片赛道深度分析</a></li>
-        <li><a href="#space-track">五、商业航天赛道深度分析</a></li>
-        <li><a href="#auto-track">六、智能网联汽车/出行赛道深度分析</a></li>
-        <li><a href="#bio-track">七、医疗健康科技赛道深度分析</a></li>
-        <li><a href="#consumer-track">八、消费科技/品牌出海赛道深度分析</a></li>
-        <li><a href="#energy-track">九、未来能源/其他赛道深度分析</a></li>
-        <li><a href="#summary">十、战略分析汇总与投资启示</a></li>
+        <li><a href="#chip-track">四、半导体/算力芯片赛道</a></li>
+        <li><a href="#space-track">五、商业航天/低空经济赛道</a></li>
+        <li><a href="#auto-track">六、新能源汽车/智能网联赛道</a></li>
+        <li><a href="#bio-track">七、生物医药/医疗器械赛道</a></li>
+        <li><a href="#consumer-track">八、消费科技/品牌出海赛道</a></li>
+        <li><a href="#energy-track">九、新能源/储能/新材料赛道</a></li>
+        <li><a href="#quantum-track">十、量子计算赛道</a></li>
+        <li><a href="#complete-list">十一、完整企业名单（100家）</a></li>
     </ul>
 </div>
 
@@ -693,52 +683,58 @@
         </thead>
         <tbody>
             <tr>
-                <td><span class="company-tag tag-ai">人工智能/大模型</span></td>
-                <td>~18家</td>
-                <td>DeepSeek、Kimi、智谱、MiniMax、阶跃星辰、面壁智能、穹彻智能、天鹜科技</td>
-                <td>AI产业化加速落地，全栈自研与规模化盈利成硬通货</td>
+                <td><span class="company-tag tag-auto">新能源汽车/智能网联</span></td>
+                <td>31家</td>
+                <td>质子汽车、九识智能（Zelos）、苇渡科技、驰芯半导体</td>
+                <td>自动驾驶商业化前夜，L4级无人车与智驾芯片同步落地</td>
             </tr>
             <tr>
                 <td><span class="company-tag tag-robot">机器人/具身智能</span></td>
-                <td>~18家</td>
-                <td>宇树科技、银河通用、智元机器人、星海图、星动纪元、智平方</td>
+                <td>22家</td>
+                <td>宇树科技、银河通用机器人、智元机器人、星海图</td>
                 <td>从技术验证迈向规模化商用，出货量与盈利成核心指标</td>
             </tr>
             <tr>
-                <td><span class="company-tag tag-chip">半导体/算力芯片</span></td>
-                <td>~10家</td>
-                <td>芯联动力、沐曦、壁仞科技、燧原科技</td>
-                <td>国产替代持续提速，AI算力需求爆发</td>
+                <td><span class="company-tag tag-ai">人工智能/大模型</span></td>
+                <td>15家</td>
+                <td>DeepSeek、Kimi、智谱AI、MiniMax、阶跃星辰</td>
+                <td>AI产业化加速落地，全栈自研与规模化盈利成硬通货</td>
             </tr>
             <tr>
-                <td><span class="company-tag tag-space">商业航天</span></td>
-                <td>~8家</td>
-                <td>纬壹科技、蓝箭航天、天兵科技、中科宇航</td>
-                <td>增速超300%，可复用火箭进展推高市场关注</td>
-            </tr>
-            <tr>
-                <td><span class="company-tag tag-auto">智能网联汽车/出行</span></td>
-                <td>~8家</td>
-                <td>小马智行</td>
-                <td>自动驾驶商业化前夜，L4级落地加速</td>
-            </tr>
-            <tr>
-                <td><span class="company-tag tag-bio">医疗健康科技</span></td>
-                <td>~10家</td>
-                <td>精锋医疗、智冉医疗</td>
-                <td>手术机器人、脑机接口等前沿领域突破</td>
+                <td><span class="company-tag tag-space">商业航天/低空经济</span></td>
+                <td>6家</td>
+                <td>纬壹科技、时空道宇、小鹏汇天、零重力飞机工业</td>
+                <td>增速超300%，可复用火箭与eVTOL双线推进</td>
             </tr>
             <tr>
                 <td><span class="company-tag tag-consumer">消费科技/品牌出海</span></td>
-                <td>~10家</td>
-                <td>库犸科技（MAMMOTION）</td>
+                <td>6家</td>
+                <td>HORWIN号外、云鲸智能、跃然创新、清能德创</td>
                 <td>生而全球化，品牌出海成新增长极</td>
             </tr>
             <tr>
-                <td><span class="company-tag tag-energy">未来能源/其他</span></td>
-                <td>~10家</td>
-                <td>星环聚能、海德氢能、智在无界</td>
-                <td>核聚变、绿氢等未来能源技术突破</td>
+                <td><span class="company-tag tag-ai">量子计算</span></td>
+                <td>6家</td>
+                <td>本源量子、玻色量子、图灵量子、量旋科技</td>
+                <td>超导/光量子/离子阱多路线并行，产业化早期</td>
+            </tr>
+            <tr>
+                <td><span class="company-tag tag-chip">半导体/集成电路</span></td>
+                <td>5家</td>
+                <td>行云集成电路、九天睿芯、酷芯微电子、芯界光核</td>
+                <td>国产替代持续提速，AI算力与封装材料需求爆发</td>
+            </tr>
+            <tr>
+                <td><span class="company-tag tag-energy">新能源/储能/新材料</span></td>
+                <td>5家</td>
+                <td>高景太阳能、光羿科技、什方科技、炎和科技</td>
+                <td>核聚变、绿氢、钙钛矿等未来能源技术突破</td>
+            </tr>
+            <tr>
+                <td><span class="company-tag tag-bio">生物医药/医疗器械</span></td>
+                <td>4家</td>
+                <td>达普生物、新合生物、深微智（深度智耀）、力之智能</td>
+                <td>手术机器人、脑机接口等前沿领域突破</td>
             </tr>
         </tbody>
     </table>
@@ -2439,35 +2435,6 @@
         </div>
     </div>
 
-    <!-- 乐动机器人 -->
-    <div class="company-card" data-track="机器人/具身智能" data-company="乐动机器人（LDROBOT）">
-        <div class="company-header">
-            <div>
-                <span class="company-name">乐动机器人（LDROBOT）</span>
-                <span class="company-tag tag-robot">机器人视觉感知/港股上市</span>
-            </div>
-        </div>
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">成立时间</div><div class="info-value">2017年11月</div></div>
-            <div class="info-item"><div class="info-label">总部</div><div class="info-value">深圳</div></div>
-            <div class="info-item"><div class="info-label">创始人</div><div class="info-value">周伟、郭盖华（华中科技大学校友）</div></div>
-            <div class="info-item"><div class="info-label">上市状态</div><div class="info-value">2026年5月11日港交所上市（02485.HK）</div></div>
-            <div class="info-item"><div class="info-label">上市市值</div><div class="info-value">约153-178亿港元</div></div>
-            <div class="info-item"><div class="info-label">核心产品</div><div class="info-value">DTOF激光雷达、视觉传感器、SLAM算法模组、智能割草机器人</div></div>
-            <div class="info-item"><div class="info-label">全球地位</div><div class="info-value">全球最大视觉感知技术为核心的智能机器人公司，DTOF激光雷达出货量全球第一</div></div>
-        </div>
-        <div class="analysis-block">
-            <div class="analysis-title">核心亮点</div>
-            <p>• <b>港股上市</b>：2026年5月11日港交所主板上市，IPO超额认购6707倍，首日暴涨130%<br>• <b>全球第一</b>：2025年DTOF激光雷达出货量超72万台，位居行业第一；视觉感知产品应用于超900万台机器人<br>• <b>客户覆盖</b>：全球前十大家用服务机器人公司中的7家（科沃斯、石头科技等），前五大商用服务机器人公司全覆盖<br>• <b>第二曲线</b>：智能割草机器人业务爆发，2025年销量3.6万台（同比+256%），收入1.37亿元（同比+488%）<br>• <b>技术突破</b>：2026年推出全球首款搭载全自研360度激光雷达的第三代割草机器人<br>• <b>融资历程</b>：累计融资4.73亿元，股东包括元璟资本（阿里CEO吴泳铭）、华业天成、源码资本、中金等<br>• <b>营收增长</b>：2023年2.77亿元→2024年4.67亿元→2025年7.48亿元<br>• <b>全球化</b>：产品远销50+国家，海外收入占比从2023年0.3%提升至2025年18.4%<br>• <b>研发实力</b>：271名研发人员，研发投入占比16-35%，自研AutoPack机器人通用开发平台</p>
-        </div>
-        <div class="swot-grid">
-            <div class="swot-item swot-s"><div class="swot-label">💪 优势</div><ul><li>DTOF激光雷达全球第一</li><li>客户覆盖全球头部机器人企业</li><li>割草机器人第二曲线爆发</li><li>港股上市，资本实力增强</li></ul></div>
-            <div class="swot-item swot-w"><div class="swot-label">⚠️ 劣势</div><ul><li>三年累计亏损近2亿元</li><li>割草机器人市场竞争加剧</li><li>核心产品毛利率承压</li></ul></div>
-            <div class="swot-item swot-o"><div class="swot-label">🚀 机会</div><ul><li>割草机器人市场渗透率不足2%</li><li>具身智能赛道爆发</li><li>海外市场拓展</li></ul></div>
-            <div class="swot-item swot-t"><div class="swot-label">🔥 威胁</div><ul><li>科沃斯、石头等客户变竞争对手</li><li>行业竞争加剧</li><li>盈利持续性待验证</li></ul></div>
-        </div>
-    </div>
-
     <!-- 万拿机器人 -->
     <div class="company-card" data-track="机器人/具身智能" data-company="万拿机器人">
         <div class="company-header">
@@ -2901,28 +2868,10 @@
         </div>
     </div>
 
-    <!-- 木牛科技 -->
-    <div class="company-card" data-track="商业航天/低空经济" data-company="木牛科技">
-        <div class="company-header">
-            <div>
-                <span class="company-name">木牛科技</span>
-                <span class="company-tag tag-space">低空经济/毫米波雷达</span>
-            </div>
-        </div>
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">成立时间</div><div class="info-value">2015年</div></div>
-            <div class="info-item"><div class="info-label">核心业务</div><div class="info-value">航空毫米波雷达（低空感知核心传感器）</div></div>
-            <div class="info-item"><div class="info-label">市场地位</div><div class="info-value">航空雷达低空高度计细分赛道市占率超60%</div></div>
-            <div class="info-item"><div class="info-label">客户</div><div class="info-value">全球超200家低空飞行器企业</div></div>
-        </div>
-        <div class="analysis-block">
-            <div class="analysis-title">核心亮点</div>
-            <p>• <b>核心产品</b>：双频毫米波雷达高度计（50米/500米），解决低空盲区和高空测距痛点<br>• <b>技术特色</b>：穿透雾/烟/灰尘能力强，全天候全天时感知<br>• <b>客户</b>：Larry Page的Kittyhawk和Opener均为忠实客户<br>• <b>全球化</b>：50+垂直领域，横跨自动驾驶、智能物联、低空飞行、智能体育</p>
-        </div>
-    </div>
-
-    <!-- 格微XN -->
-    <div class="company-card" data-track="商业航天/低空经济" data-company="格微XN">
+    <details class="todo-group">
+        <summary>信息待补充（1 家）</summary>
+        <div class="todo-list">
+            <div class="company-card" data-track="商业航天/低空经济" data-company="格微XN">
         <div class="company-header">
             <div>
                 <span class="company-name">格微XN</span>
@@ -2934,6 +2883,8 @@
             <p>格微XN入选36氪「2026最具成长价值的百家企业」低空经济赛道。由于公开信息有限，详细业务数据未充分披露。后续将持续跟踪补充。</p>
         </div>
     </div>
+        </div>
+    </details>
 </div>
 
 <!-- Section 6: Auto Track -->
@@ -3048,34 +2999,6 @@
         <div class="analysis-block">
             <div class="analysis-title">风险提示</div>
             <p>• 2026年7月曝出员工集体投诉拖欠工资及年终奖，社保公积金断缴<br>• 全球仅售出36台（美国1台、欧洲2台、其余中国）<br>• 创始人韩文承认存在薪酬延迟及前期扩张过快问题<br>• 重卡制造重资产，海外基地持续烧钱</p>
-        </div>
-    </div>
-
-    <!-- 新石器 -->
-    <div class="company-card" data-track="新能源汽车/智能网联" data-company="新石器（Neolix）">
-        <div class="company-header">
-            <div>
-                <span class="company-name">新石器（Neolix）</span>
-                <span class="company-tag tag-auto">无人配送/智能网联</span>
-            </div>
-        </div>
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">成立时间</div><div class="info-value">2018年</div></div>
-            <div class="info-item"><div class="info-label">总部</div><div class="info-value">北京</div></div>
-            <div class="info-item"><div class="info-label">创始人</div><div class="info-value">余恩源（重庆大学工业自动化，前物流行业创业者）</div></div>
-            <div class="info-item"><div class="info-label">累计融资</div><div class="info-value">超100亿元人民币（行业第一）</div></div>
-            <div class="info-item"><div class="info-label">车队规模</div><div class="info-value">全球超3万辆L4级无人车</div></div>
-            <div class="info-item"><div class="info-label">覆盖</div><div class="info-value">近20个国家、300+城市</div></div>
-        </div>
-        <div class="analysis-block">
-            <div class="analysis-title">核心亮点</div>
-            <p>• <b>E轮近4亿美元</b>（2026年10月）：博裕投资+国家AI产业投资基金联合领投，2026年国内自动驾驶最大单笔融资<br>• <b>全球最大无人配送运力网络</b>：3万辆L4级无人车，累计2.6亿公里，日均新增100万+公里<br>• <b>技术</b>：Neolix-Pilot L4自动驾驶系统，Neolix-VA车端模型，云端大脑<br>• <b>成本</b>：单车硬件成本压到10万元以内，美国同类产品的1/30<br>• <b>商业模式</b>：卖车+租车+RaaS运力服务（按里程计费）<br>• <b>全球化</b>：中东（阿布扎比牌照）、欧洲（卢森堡总部）、日韩、东南亚<br>• <b>具身智能延伸</b>：从无人车向装卸/搬运机器人延伸，X1机器人首次展示<br>• <b>2027年目标</b>：实现全面盈利<br>• <b>投资方</b>：理想汽车（天使轮起连续追投）、阿里、腾讯、淡马锡、软银亚洲、广汽资本等</p>
-        </div>
-        <div class="swot-grid">
-            <div class="swot-item swot-s"><div class="swot-label">💪 优势</div><ul><li>累计融资超100亿元，行业第一</li><li>全球最大无人配送车队（3万辆）</li><li>单车成本10万以内，极致性价比</li><li>理想汽车早期支持，产线共享</li></ul></div>
-            <div class="swot-item swot-w"><div class="swot-label">⚠️ 劣势</div><ul><li>尚未全面盈利（目标2027年）</li><li>卖车仍占收入大头，服务收入占比待提升</li><li>九识智能等竞品追赶</li></ul></div>
-            <div class="swot-item swot-o"><div class="swot-label">🚀 机会</div><ul><li>无人配送政策三连发（2026年7-9月）</li><li>从运输向装卸/搬运全链路无人化延伸</li><li>海外市场3-6年后收入超中国</li></ul></div>
-            <div class="swot-item swot-t"><div class="swot-label">🔥 威胁</div><ul><li>九识智能（菜鸟整合后）强劲竞争</li><li>通用自动驾驶公司切入物流</li><li>海外本地化运营挑战</li></ul></div>
         </div>
     </div>
 
@@ -3425,279 +3348,6 @@
 
 <!-- 其他信息有限企业 - 批量添加 -->
 
-<!-- HYDRA CELL/水射 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="HYDRA CELL/水射">
-    <div class="company-header" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-        <div>
-            <span class="company-name">HYDRA CELL/水射</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">新能源/储能</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于新能源/储能赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 中科摩尔 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="中科摩尔">
-    <div class="company-header" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);">
-        <div>
-            <span class="company-name">中科摩尔</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">量子计算</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于量子计算赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 创翼科技 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="创翼科技">
-    <div class="company-header" style="background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);">
-        <div>
-            <span class="company-name">创翼科技</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">智能网联</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于智能网联赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 原芯半导体 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="原芯半导体">
-    <div class="company-header" style="background: linear-gradient(135deg, #fdcbf1 0%, #e6dee9 100%);">
-        <div>
-            <span class="company-name">原芯半导体</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">半导体</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于半导体赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 德芯源 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="德芯源">
-    <div class="company-header" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
-        <div>
-            <span class="company-name">德芯源</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">生物科技</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于生物科技赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 擎天柱 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="擎天柱">
-    <div class="company-header" style="background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%);">
-        <div>
-            <span class="company-name">擎天柱</span>
-            <span class="company-subtitle">高位作业机器人</span>
-        </div>
-        <div class="tags">
-            <span class="tag">机器人</span>
-            <span class="tag">高位作业</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，专注于高位作业机器人领域。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 易智U医疗 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="易智U医疗">
-    <div class="company-header" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);">
-        <div>
-            <span class="company-name">易智U医疗</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">AI医疗</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于AI医疗赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 星图 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="星图">
-    <div class="company-header" style="background: linear-gradient(135deg, #c471f5 0%, #fa71cd 100%);">
-        <div>
-            <span class="company-name">星图</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">AI</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于AI赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 普尔星智能 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="普尔星智能">
-    <div class="company-header" style="background: linear-gradient(135deg, #48c6ef 0%, #6f86d6 100%);">
-        <div>
-            <span class="company-name">普尔星智能</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">具身智能</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于具身智能赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 普科方舟 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="普科方舟">
-    <div class="company-header" style="background: linear-gradient(135deg, #feada6 0%, #f5efef 100%);">
-        <div>
-            <span class="company-name">普科方舟</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">生物科技</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于生物科技赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 智内医疗 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="智内医疗">
-    <div class="company-header" style="background: linear-gradient(135deg, #a3bded 0%, #6991c7 100%);">
-        <div>
-            <span class="company-name">智内医疗</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">医疗科技</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于医疗科技赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 有计健康 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="有计健康">
-    <div class="company-header" style="background: linear-gradient(135deg, #9795f0 0%, #fbc8d4 100%);">
-        <div>
-            <span class="company-name">有计健康</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">健康科技</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于健康科技赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 木木科技 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="木木科技">
-    <div class="company-header" style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);">
-        <div>
-            <span class="company-name">木木科技</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">低空经济</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于低空经济赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 格辰机器人 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="格辰机器人">
-    <div class="company-header" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
-        <div>
-            <span class="company-name">格辰机器人</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">AI+机器人</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于AI+机器人赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 深外智能 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="深外智能">
-    <div class="company-header" style="background: linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%);">
-        <div>
-            <span class="company-name">深外智能</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">具身智能</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于具身智能赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
-<!-- 深时MACHINE -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="深时MACHINE">
-    <div class="company-header" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);">
-        <div>
-            <span class="company-name">深时MACHINE</span>
-            <span class="company-subtitle">暂无信息</span>
-        </div>
-        <div class="tags">
-            <span class="tag">机器人</span>
-        </div>
-    </div>
-    <div class="dimension-section">
-        <h3>📋 企业概况</h3>
-        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于机器人赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
-    </div>
-</div>
-
 <!-- 芯联动力 -->
 <div class="company-card" data-track="新能源汽车/智能网联" data-company="芯联动力">
     <div class="company-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
@@ -3817,8 +3467,251 @@
     </div>
 </div>
 
-<!-- 英码智能PeBot -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="英码智能PeBot">
+    <details class="todo-group">
+        <summary>信息待补充（22 家）</summary>
+        <div class="todo-list">
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="HYDRA CELL/水射">
+    <div class="company-header" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+        <div>
+            <span class="company-name">HYDRA CELL/水射</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">新能源/储能</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于新能源/储能赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="中科摩尔">
+    <div class="company-header" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);">
+        <div>
+            <span class="company-name">中科摩尔</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">量子计算</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于量子计算赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="创翼科技">
+    <div class="company-header" style="background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);">
+        <div>
+            <span class="company-name">创翼科技</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">智能网联</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于智能网联赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="原芯半导体">
+    <div class="company-header" style="background: linear-gradient(135deg, #fdcbf1 0%, #e6dee9 100%);">
+        <div>
+            <span class="company-name">原芯半导体</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">半导体</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于半导体赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="德芯源">
+    <div class="company-header" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+        <div>
+            <span class="company-name">德芯源</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">生物科技</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于生物科技赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="擎天柱">
+    <div class="company-header" style="background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%);">
+        <div>
+            <span class="company-name">擎天柱</span>
+            <span class="company-subtitle">高位作业机器人</span>
+        </div>
+        <div class="tags">
+            <span class="tag">机器人</span>
+            <span class="tag">高位作业</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，专注于高位作业机器人领域。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="易智U医疗">
+    <div class="company-header" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);">
+        <div>
+            <span class="company-name">易智U医疗</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">AI医疗</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于AI医疗赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="星图">
+    <div class="company-header" style="background: linear-gradient(135deg, #c471f5 0%, #fa71cd 100%);">
+        <div>
+            <span class="company-name">星图</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">AI</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于AI赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="普尔星智能">
+    <div class="company-header" style="background: linear-gradient(135deg, #48c6ef 0%, #6f86d6 100%);">
+        <div>
+            <span class="company-name">普尔星智能</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">具身智能</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于具身智能赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="普科方舟">
+    <div class="company-header" style="background: linear-gradient(135deg, #feada6 0%, #f5efef 100%);">
+        <div>
+            <span class="company-name">普科方舟</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">生物科技</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于生物科技赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="智内医疗">
+    <div class="company-header" style="background: linear-gradient(135deg, #a3bded 0%, #6991c7 100%);">
+        <div>
+            <span class="company-name">智内医疗</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">医疗科技</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于医疗科技赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="有计健康">
+    <div class="company-header" style="background: linear-gradient(135deg, #9795f0 0%, #fbc8d4 100%);">
+        <div>
+            <span class="company-name">有计健康</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">健康科技</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于健康科技赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="木木科技">
+    <div class="company-header" style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);">
+        <div>
+            <span class="company-name">木木科技</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">低空经济</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于低空经济赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="格辰机器人">
+    <div class="company-header" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+        <div>
+            <span class="company-name">格辰机器人</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">AI+机器人</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于AI+机器人赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="深外智能">
+    <div class="company-header" style="background: linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%);">
+        <div>
+            <span class="company-name">深外智能</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">具身智能</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于具身智能赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="深时MACHINE">
+    <div class="company-header" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);">
+        <div>
+            <span class="company-name">深时MACHINE</span>
+            <span class="company-subtitle">暂无信息</span>
+        </div>
+        <div class="tags">
+            <span class="tag">机器人</span>
+        </div>
+    </div>
+    <div class="dimension-section">
+        <h3>📋 企业概况</h3>
+        <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于机器人赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
+    </div>
+</div>
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="英码智能PeBot">
     <div class="company-header" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
         <div>
             <span class="company-name">英码智能PeBot</span>
@@ -3833,9 +3726,7 @@
         <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于具身智能赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
     </div>
 </div>
-
-<!-- 蓝友机器人 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="蓝友机器人">
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="蓝友机器人">
     <div class="company-header" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
         <div>
             <span class="company-name">蓝友机器人</span>
@@ -3850,9 +3741,7 @@
         <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于机器人赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
     </div>
 </div>
-
-<!-- 诺和科技 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="诺和科技">
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="诺和科技">
     <div class="company-header" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
         <div>
             <span class="company-name">诺和科技</span>
@@ -3867,9 +3756,7 @@
         <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于医疗科技赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
     </div>
 </div>
-
-<!-- 诺瓦智能 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="诺瓦智能">
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="诺瓦智能">
     <div class="company-header" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
         <div>
             <span class="company-name">诺瓦智能</span>
@@ -3884,9 +3771,7 @@
         <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于智能硬件赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
     </div>
 </div>
-
-<!-- 质子半导体 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="质子半导体">
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="质子半导体">
     <div class="company-header" style="background: linear-gradient(135deg, #fccb90 0%, #d57eeb 100%);">
         <div>
             <span class="company-name">质子半导体</span>
@@ -3901,9 +3786,7 @@
         <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于半导体赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
     </div>
 </div>
-
-<!-- 跃灵生物 -->
-<div class="company-card" data-track="新能源汽车/智能网联" data-company="跃灵生物">
+            <div class="company-card" data-track="新能源汽车/智能网联" data-company="跃灵生物">
     <div class="company-header" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);">
         <div>
             <span class="company-name">跃灵生物</span>
@@ -3918,6 +3801,8 @@
         <p>该企业入选36氪2026最具成长价值的百家企业榜单，归属于生物科技赛道。由于公开信息有限，详细业务数据、融资历程、技术能力等信息暂未充分披露。后续将持续跟踪补充。</p>
     </div>
 </div>
+        </div>
+    </details>
 
 <!-- Section 7: Bio Track -->
 <div class="section" id="bio-track" data-track-section="生物医药/医疗器械">
@@ -3926,90 +3811,6 @@
     <div class="analysis-block">
         <div class="analysis-title">赛道整体判断</div>
         <p>脑机接口、医疗器械、生命科学工具等前沿领域突破。2026年脑机接口首次写入政府工作报告，被列为"十五五"规划未来产业。博睿康获得全球首个侵入式脑机接口医疗器械注册证，标志中国在该领域实现从跟跑到领跑的跨越。</p>
-    </div>
-
-    <!-- 脑虎科技 -->
-    <div class="company-card" data-track="生物医药/医疗器械" data-company="脑虎科技（NeuroXess）">
-        <div class="company-header">
-            <div>
-                <span class="company-name">脑虎科技（NeuroXess）</span>
-                <span class="company-tag tag-bio">脑机接口/植入式BCI</span>
-            </div>
-        </div>
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">成立时间</div><div class="info-value">2021年</div></div>
-            <div class="info-item"><div class="info-label">总部</div><div class="info-value">上海</div></div>
-            <div class="info-item"><div class="info-label">创始人</div><div class="info-value">陶虎（中科院上海微系统所研究员）+ 彭雷（客如云创始人）</div></div>
-            <div class="info-item"><div class="info-label">最新融资</div><div class="info-value">B轮7亿元（国投聚力、深创投、勤智资本领投，2026年10月）</div></div>
-            <div class="info-item"><div class="info-label">核心技术</div><div class="info-value">"三全"脑机接口系统（全植入、全无线、全功能）</div></div>
-            <div class="info-item"><div class="info-label">临床进展</div><div class="info-value">65例临床试验，GCP注册临床启动（华山医院）</div></div>
-        </div>
-        <div class="analysis-block">
-            <div class="analysis-title">核心亮点</div>
-            <p>• <b>"三全"系统</b>：全植入（所有核心器件植入体内）、全无线（供电和数据传输无线）、全功能（运动解码+语言解码+环境控制）<br>• <b>技术路线</b>：硬膜下半侵入式（电极贴在皮层表面，不侵入脑组织），"不伤脑、不烧脑、可复制"<br>• <b>性能指标</b>：256通道电极阵列，64通道/平方厘米密度（较传统提升64倍），脑控解码速率5.2 BPS，全链路延时<50ms<br>• <b>临床里程碑</b>：2026年7月华山医院启动GCP注册临床，国内首款进入三类医疗器械注册临床的硬膜下植入式BCI<br>• <b>产业化</b>：赣江新区"超级工厂"动工，1.43万平方米，目标万套级产能<br>• <b>融资历程</b>：国投聚力、深创投、IDG资本、中芯聚源等，累计融资超10亿元<br>• <b>科研市场</b>：服务70+顶尖科研医疗机构，国产脑机接口科研装备市场领先</p>
-        </div>
-        <div class="swot-grid">
-            <div class="swot-item swot-s"><div class="swot-label">💪 优势</div><ul><li>全链条自主研发（电极+芯片+手术机器人+算法）</li><li>"三全"系统全球领先</li><li>65例临床数据积累</li><li>国资+产业资本背书</li></ul></div>
-            <div class="swot-item swot-w"><div class="swot-label">⚠️ 劣势</div><ul><li>尚未获得医疗器械注册证</li><li>商业化收入有限</li><li>与博睿康形成直接竞争</li></ul></div>
-            <div class="swot-item swot-o"><div class="swot-label">🚀 机会</div><ul><li>"十五五"规划支持脑机接口</li><li>渐冻症、高位截瘫等刚需市场</li><li>BCI+AI融合探索</li></ul></div>
-            <div class="swot-item swot-t"><div class="swot-label">🔥 威胁</div><ul><li>Neuralink等国际竞争</li><li>临床审批周期长</li><li>伦理与监管挑战</li></ul></div>
-        </div>
-    </div>
-
-    <!-- 博睿康 -->
-    <div class="company-card" data-track="生物医药/医疗器械" data-company="博睿康">
-        <div class="company-header">
-            <div>
-                <span class="company-name">博睿康</span>
-                <span class="company-tag tag-bio">脑机接口/全球首证</span>
-            </div>
-        </div>
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">成立时间</div><div class="info-value">2011年（常州）→2025年迁上海</div></div>
-            <div class="info-item"><div class="info-label">创始人</div><div class="info-value">胥红来、黄肖山（清华大学生物医学工程博士）</div></div>
-            <div class="info-item"><div class="info-label">融资历程</div><div class="info-value">天使轮→A轮6000万→B轮过亿（红杉中国）→D轮（上海国资）→Pre-IPO（上海未来产业基金）</div></div>
-            <div class="info-item"><div class="info-label">IPO进展</div><div class="info-value">科创板IPO获受理（2026年6月），拟募资25亿元</div></div>
-            <div class="info-item"><div class="info-label">核心产品</div><div class="info-value">NEO-ONE SCI（全球首个获批上市的侵入式脑机接口医疗器械）</div></div>
-            <div class="info-item"><div class="info-label">技术路线</div><div class="info-value">半侵入式（硬膜外电极）</div></div>
-        </div>
-        <div class="analysis-block">
-            <div class="analysis-title">核心亮点</div>
-            <p>• <b>全球首证</b>：2026年3月13日，NEO-ONE SCI获国家药监局批准上市，全球首个侵入式脑机接口三类医疗器械注册证<br>• <b>技术路线</b>：硬膜外植入（电极置于硬脑膜外，不刺入脑组织），无线供能通信，无需植入电池<br>• <b>临床数据</b>：多中心临床试验，患者手部功能改善率100%，抓握准确率>90%，部分患者出现神经重塑迹象<br>• <b>商业化</b>：2025年营收1.08亿元，非侵入式脑电图机出货量国产第一，打入500+医疗机构、300+科研机构<br>• <b>产品矩阵</b>：NEO-ONE SCI（四肢瘫痪）+ NEO-ONE ANS（难治性癫痫，确证性临床）+ NEO-ONE Stroke（脑卒中，临床前）<br>• <b>《自然》关注</b>：NEO系统被列为2025年全球重点关注项目<br>• <b>医保对接</b>：获批后2天即完成医保编码赋码，上海已纳入医保医用耗材目录</p>
-        </div>
-        <div class="swot-grid">
-            <div class="swot-item swot-s"><div class="swot-label">💪 优势</div><ul><li>全球首证先发优势</li><li>清华神经工程实验室技术底蕴</li><li>非侵入式业务提供现金流</li><li>科创板IPO融资25亿</li></ul></div>
-            <div class="swot-item swot-w"><div class="swot-label">⚠️ 劣势</div><ul><li>三年累计亏损3.29亿元</li><li>NEO-ONE SCI报告期内收入为零</li><li>患者群体有限（颈段脊髓损伤）</li></ul></div>
-            <div class="swot-item swot-o"><div class="swot-label">🚀 机会</div><ul><li>脑机接口写入政府工作报告</li><li>适应症拓展（癫痫、脑卒中）</li><li>医保支付逐步打通</li></ul></div>
-            <div class="swot-item swot-t"><div class="swot-label">🔥 威胁</div><ul><li>脑虎科技、阶梯医疗等竞争</li><li>侵入式产品医保覆盖不确定</li><li>技术迭代风险</li></ul></div>
-        </div>
-    </div>
-
-    <!-- 微光医疗 -->
-    <div class="company-card" data-track="生物医药/医疗器械" data-company="微光医疗">
-        <div class="company-header">
-            <div>
-                <span class="company-name">微光医疗</span>
-                <span class="company-tag tag-bio">医疗器械/OCT影像</span>
-            </div>
-        </div>
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">成立时间</div><div class="info-value">2012年8月</div></div>
-            <div class="info-item"><div class="info-label">总部</div><div class="info-value">深圳</div></div>
-            <div class="info-item"><div class="info-label">创始人</div><div class="info-value">朱锐博士（中科院西安光机所孵化）</div></div>
-            <div class="info-item"><div class="info-label">最新融资</div><div class="info-value">E轮数亿元（中美绿色长三角、倚锋资本领投，2026年6月）</div></div>
-            <div class="info-item"><div class="info-label">累计融资</div><div class="info-value">超4亿元（红杉中国、经纬创投、中科创星等）</div></div>
-            <div class="info-item"><div class="info-label">核心产品</div><div class="info-value">冠脉OCT系统、OCT-FFR、冷激光消融系统</div></div>
-        </div>
-        <div class="analysis-block">
-            <div class="analysis-title">核心亮点</div>
-            <p>• <b>市场地位</b>：国产冠脉OCT市占率第一（超25%），全球第二（仅次于雅培），2024年第5万根导管下线<br>• <b>全球首创</b>：多模态OCT-FFR系统（2026年1月获批），一次扫描同时获取影像+功能数据，无需压力导丝<br>• <b>FDA认证</b>：2025年两款冠脉OCT设备及一款导管获FDA批准，国产唯一获FDA的腔内影像设备<br>• <b>技术突破</b>：自研355nm冷激光消融系统（国内首创），AI系统优于ChatGPT-5和初级医师<br>• <b>全链条自研</b>：软件+硬件+耗材，核心元器件（探测器、采集卡）自研，打破"卡脖子"<br>• <b>产品矩阵</b>：冠脉OCT、颈动脉OCT（全球唯一双适应症）、冷激光消融、红外血管成像仪<br>• <b>商业模式</b>：从"卖设备"转向"诊断+治疗+评估"智能介入平台，AI赋能全流程</p>
-        </div>
-        <div class="swot-grid">
-            <div class="swot-item swot-s"><div class="swot-label">💪 优势</div><ul><li>国产OCT龙头，全球第二</li><li>FDA+NMPA双认证</li><li>全链条自研，核心器件可控</li><li>AI+影像技术领先</li></ul></div>
-            <div class="swot-item swot-w"><div class="swot-label">⚠️ 劣势</div><ul><li>雅培等国际巨头竞争</li><li>海外市场拓展需时间</li><li>激光治疗产品仍在临床</li></ul></div>
-            <div class="swot-item swot-o"><div class="swot-label">🚀 机会</div><ul><li>国产替代加速</li><li>AI+医疗影像爆发</li><li>外周血管、神经等新领域拓展</li></ul></div>
-            <div class="swot-item swot-t"><div class="swot-label">🔥 威胁</div><ul><li>进口品牌价格战</li><li>集采政策压力</li><li>技术迭代风险</li></ul></div>
-        </div>
     </div>
 
     <!-- 达普生物 -->
@@ -4065,28 +3866,6 @@
             <div class="swot-item swot-w"><div class="swot-label">⚠️ 劣势</div><ul><li>营收规模较小（4000万）</li><li>非侵入式信号精度有限</li><li>与侵入式路线形成竞争</li></ul></div>
             <div class="swot-item swot-o"><div class="swot-label">🚀 机会</div><ul><li>广东"广州脑谷"百亿规划</li><li>康复医疗市场爆发</li><li>C端居家康复设备拓展</li></ul></div>
             <div class="swot-item swot-t"><div class="swot-label">🔥 威胁</div><ul><li>BrainCo等竞品竞争</li><li>医保支付覆盖不确定</li><li>技术迭代风险</li></ul></div>
-        </div>
-    </div>
-
-    <!-- 脑机星链 -->
-    <div class="company-card" data-track="生物医药/医疗器械" data-company="脑机星链">
-        <div class="company-header">
-            <div>
-                <span class="company-name">脑机星链</span>
-                <span class="company-tag tag-bio">脑机接口/无创超声</span>
-            </div>
-        </div>
-        <div class="info-grid">
-            <div class="info-item"><div class="info-label">成立时间</div><div class="info-value">2025年</div></div>
-            <div class="info-item"><div class="info-label">总部</div><div class="info-value">深圳（西安研发中心、湖南量产基地）</div></div>
-            <div class="info-item"><div class="info-label">首席科学家</div><div class="info-value">陈霸东教授（西安交通大学）</div></div>
-            <div class="info-item"><div class="info-label">战略合作</div><div class="info-value">亚辉龙生物（2026年1月签署战略合作框架协议）</div></div>
-            <div class="info-item"><div class="info-label">核心技术</div><div class="info-value">无创超声神经调控+AI脑电大模型</div></div>
-            <div class="info-item"><div class="info-label">核心产品</div><div class="info-value">脑电采集分析仪、脑机接口助眠仪、睡眠监测仪、迷走神经刺激仪</div></div>
-        </div>
-        <div class="analysis-block">
-            <div class="analysis-title">核心亮点</div>
-            <p>• <b>技术路线</b>：无创超声神经调控（非侵入式），低强度超声精准作用于神经环路<br>• <b>全链条</b>："脑信号采集—智能分析—无创超声神经调控干预—长期健康管理"<br>• <b>应用场景</b>：睡眠健康、神经调控、阿尔茨海默症/孤独症/抑郁症检测<br>• <b>产学研</b>：与西安交通大学深度合作，参与多项国家级自然科学项目，50+核心发明专利<br>• <b>商业化</b>：面向康养中心、体检机构、私享养护空间等B端客户，提供场景化成套方案<br>• <b>产业合作</b>：与亚辉龙生物战略合作，整合急诊、脑疾病诊断渠道资源</p>
         </div>
     </div>
 
@@ -4614,6 +4393,7 @@
             <div class="swot-item swot-t"><div class="swot-label">🔥 威胁</div><ul><li>协鑫、极电等巨头在地面电站领域竞争</li><li>钙钛矿稳定性问题尚未彻底解决</li><li>太空光伏政策与监管不确定性</li><li>技术路线被替代风险</li></ul></div>
         </div>
     </div>
+    </div>
 
 <!-- Section 10: Quantum Track -->
 <div class="section" id="quantum-track" data-track-section="量子计算">
@@ -4876,6 +4656,7 @@
             <p>云图量子的公开信息较为有限。根据工商注册信息，公司成立于2015年，注册于深圳南山区。由于量子计算赛道信息透明度较低，部分早期布局企业的详细业务数据未充分公开披露。后续将持续跟踪补充。</p>
         </div>
     </div>
+    </div>
 
 <!-- Section 11: Complete List -->
 <div class="section" id="complete-list">
@@ -5076,7 +4857,7 @@
 <div class="section" style="text-align: center; color: var(--text-secondary);">
     <p>报告完成 | 数据来源：企业官网、招股书、36氪、财新、The Information、QuestMobile等权威媒体</p>
     <p>声明：本报告仅供研究参考，不构成投资建议。部分数据基于公开信息整理，可能存在偏差。</p>
-    <p>生成时间：2026年11月2日</p>
+    <p>生成时间：<span id="report-date-footer"></span></p>
     <p style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
         <strong style="color: var(--accent);">原始榜单来源：</strong><br>
         36氪「2026年最具成长价值的百家企业」榜单于2026年6月18日正式发布<br>
@@ -5096,6 +4877,8 @@
     const day = reportDate.getDate();
     const dateStr = year + '年' + month + '月' + day + '日';
     document.getElementById('report-date').textContent = dateStr;
+    const footerDate = document.getElementById('report-date-footer');
+    if (footerDate) footerDate.textContent = dateStr;
 })();
 
 // 企业筛选功能
